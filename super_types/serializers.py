@@ -5,5 +5,6 @@ from .models import Super_Types
 class Super_Types_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Super_Types
-        fields = ['Hero', 'Villian']
+        fields = ['hero', 'villain']
+    
         
