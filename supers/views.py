@@ -23,16 +23,16 @@ def supers_list(request):
        
             serializer = SuperSerializer(supers, many=True)
             return Response(serializer.data)
-        # else:
-        #     custom_response_dictionary = {}
+        else:
+            types = Super_Types.objects.all()
+            custom_response_dictionary = {}
 
-        #     for type in types:
-        #         supers = Super.objects.filter(super_type_id=type.id)
-        #         super_serializer = SuperSerializer(supers, many=True)
-
-        #         custom_response_dictionary[super_type.type] = {
-
-        #         }
+            for type in types:
+                supers = Super.objects.filter(super_type_id=type.id)
+                super_serializer = SuperSerializer(supers, many=True)
+                custom_response_dictionary[type.type] = {
+                    'Supers': super_serializer.data
+                }
 
              
 
